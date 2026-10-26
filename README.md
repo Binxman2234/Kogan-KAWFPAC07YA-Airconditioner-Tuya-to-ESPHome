@@ -14,6 +14,7 @@ And there are three more holes on the back of the board, RST, A_0 and A_1.
 -A_1: test mode i think. I didn't use it.
 
 !!Flashing!!
+
 You need a USB-UART adapter with 3.3 V logic, a 3.3 V supply for the module, and I used ltchiptool (https://github.com/libretiny-eu/ltchiptool).
 For the adapter I used an ESP32S3 Chip with ESP USB Bridge (https://github.com/espressif/esp-usb-bridge) firmware, and just some jumper leads coming from the pins on the chip to the contacts on the AC module. 
 
