@@ -56,8 +56,9 @@ After completion, verify thru logs it seems to be working (I added it to my HA b
 These are already handled in `aircon.yaml`, but they're worth knowing if you adapt it:
 
 UART0 pins: The `wbr1` board definition didn't define UART0, so the config adds the build flags `-DPIN_SERIAL0_RX=13u` and `-DPIN_SERIAL0_TX=14u` (see [esphome#13596](https://github.com/esphome/esphome/issues/13596)).
+
 Logger: The logger stays on UART2 (the Log pins) and the MCU is on UART0, so there's no need for `baud_rate: 0`.
-Current temperature: The unit has no current-temperature datapoint. Without one, ESPHome's Tuya climate code bails out and the mode is never read, so `on_boot` sets `current_temperature` to 0.
+
 Mode changes from HA: The MCU doesn't echo mode changes made over Wi-Fi I dont think, so `on_control` waits 1 s and then sends the Tuya status query (`55 AA 00 08 00 00 07`) to read the state back.
 
 ## Datapoints
