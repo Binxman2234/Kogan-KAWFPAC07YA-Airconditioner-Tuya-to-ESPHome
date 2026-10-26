@@ -40,10 +40,13 @@ The dump should be exactly 2,097,152 bytes, and `ltchiptool flash file` should r
 Cmds i used to build/flash:
 
 cp secrets.yaml.example secrets.yaml 
+
 esphome compile ac-configname.yaml
+
 ltchiptool flash write -d /dev/ttyUSB0 firmware.uf2
 
 NOTE!:
+
 Probably leave the wire on A_0 throughout the flash, I honestly just used blutack. Removing had mixed results however mostly stopped the flash.
 
 After completion, verify thru logs it seems to be working (I added it to my HA before putting it back in the AC), remove the A_0 wire, reset, and plug the module back into the AC. It joined my Wi-Fi and Home Assistant discovered it pretty well immediately. Later updates I've just done OTA.
